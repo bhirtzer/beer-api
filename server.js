@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const beerRouter = require('./routes/beerRouter');
+const ciderRouter = require('./routes/ciderRouter');
 const app = express();
 
 console.log('This runs on startup');
@@ -9,6 +10,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use('/beers', beerRouter);
+// make a secondary router
+app.use ('/ciders', ciderRouter);
 
 app.use('/', (req, res) => {
     res.send('Welcome to the API of beer');
